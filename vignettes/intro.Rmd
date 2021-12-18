@@ -1,0 +1,52 @@
+---
+title: "Introduction to StatComp21039"
+author: "LingFeng Qi"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Introduction to StatComp21039}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Stochastic dominance tests for risk averters
+
+Definition of risk averters: $\{u:(-1)^i·u^{(i)}\le0,i=1,2,3\}$ where $u^{(i)}$ is the ith derivative of u. u is utility functions.
+
+For two random variables Y and Z with Observed data ‘data1’ and ‘data2’, we can use this function ‘sdfra’ which means stochastic dominance for risk averters to test if Y dominance or dominanced by Z in first, second or third order. Both data1 and data2 should be a column of numbers. And B is the times for bootstrap, it has a default value of 2000. 
+
+<br>
+
+result <- sdfra(data1, data2, B)
+
+<br>
+
+Output is a list that contains tests result for FSD, SSD, TSD and some statistics, we can call the result with 'sd', 'TA' and 'bound'.
+
+For risk averters, if sd[i]=1 then random variables Y dominance Z in the ith order. If sd[i]=-1 then random variables Y is dominanced by Z in the ith order.If sd[i]=0 then random variables Y and Z don't have dominance relation. 
+
+'TA' is a matrix of 3x200, shows the Stochastic dominance statistic on the select point. 'Bound' is a matrix of 5x3 shows the statistic we got to compare the sd relation between Y and Z.
+
+<br>
+
+## Stochastic dominance tests for risk seekers
+
+Definition of risk seekers: $\{u:u^{(i)}\ge0,i=1,2,3\}$ where $u^{(i)}$ is the ith derivative of u. u is utility functions.
+
+Similarly, for two random variables Y and Z with Observed data ‘data1’ and ‘data2’, we can use this function ‘sdfrs’ which means stochastic dominance for risk seekers to test if Y dominance or dominanced by Z in first, second or third order. Both data1 and data2 should be a column of numbers. And B is the times for bootstrap, it has a default value of 2000. 
+
+<br>
+
+result <- sdfrs(data1, data2, B)
+
+<br>
+
+Output is a list that contains tests result for FSD, SSD, TSD and some statistics, we can call the result with 'sd', 'TD' and 'bound'.
+
+For risk seekers, if sd[i]=1 then random variables Y dominance Z in the ith order. If sd[i]=-1 then random variables Y is dominanced by Z in the ith order.If sd[i]=0 then random variables Y and Z don't have dominance relation. 
+
+'TD' is a matrix of 3x200, shows the Stochastic dominance statistic on the select point. 'Bound' is a matrix of 5x3 shows the statistic we got to compare the sd relation between Y and Z.

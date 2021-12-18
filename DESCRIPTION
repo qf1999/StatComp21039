@@ -1,0 +1,19 @@
+Package: StatComp21039
+Type: Package
+Title: Provide several functions for the final homework of the
+        'Statistical Computing' course in 2021 fall
+Version: 1.0
+Date: 2021-12-17
+Author: LingFeng Qi
+Maintainer: LingFeng Qi <qlf1999@mail.ustc.edu.cn>
+Description: Two R functions can be used to do the Stochastic dominance tests 
+        for risk averters and risk seekers.
+License: GPL (>= 2)
+Imports: Rcpp, stats, boot, MASS, moments, RANN, energy, Ball, microbenchmark, bootstrap, graphics
+LinkingTo: Rcpp
+RoxygenNote: 7.1.2
+Encoding: UTF-8
+Suggests: knitr, rmarkdown
+VignetteBuilder: knitr
+URL: http://github.com/qf1999/StatComp21039
+BugReports: http://github.com/qf1999/StatComp21039/issues
